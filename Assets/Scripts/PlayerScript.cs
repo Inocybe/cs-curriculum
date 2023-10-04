@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour
 
     private void ChangeHealth(int amount, float time)
     {
-        if (hitTimer >= 0)
+        if (hitTimer <= 0)
             health += amount;
         hitTimer = time;
         healthText.text = "Health: " + health.ToString();
