@@ -11,39 +11,43 @@ public class PlayerScript : MonoBehaviour
     public int coins;
     public int health;
     public float hitTimer;
-    private float originalHitTimer;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
 
-    void Start()
-    {
-        originalHitTimer = hitTimer;
-    }
-    
     void Update()
     {
-        hitTimer -= Time.deltaTime;
+        Timer();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (CompareTag("Coin"))
+        if (other.CompareTag("Coin"))
         {
             coins++;
+            coinText.text = "Coins: " + coins.ToString();
             other.gameObject.SetActive(false);
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (CompareTag("Spikes"))
+        if (other.gameObject.CompareTag("Spikes"))
         {
-            ChangeHealth(-2);
+            ChangeHealth(-2, 5);
         }
     }
 
-    private void ChangeHealth(int amount)
+    private void ChangeHealth(int amount, float time)
     {
-        health += amount;
+        if (hitTimer >= 0)
+            health += amount;
+        hitTimer = time;
+        healthText.text = "Health: " + health.ToString();
+    }
+    
+
+    private void Timer()
+    {
+        hitTimer -= Time.deltaTime;
     }
 }
