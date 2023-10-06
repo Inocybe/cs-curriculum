@@ -10,13 +10,13 @@ public class PlayerScript : MonoBehaviour
 {
     public int coins;
     public int health;
-    public float hitTimer;
-    public TextMeshProUGUI coinText;
-    public TextMeshProUGUI healthText;
 
-    void Update()
+    private bool _iFrames = false;
+    private float _startTime;
+
+    private void Update()
     {
-        Timer();
+        HealthUpdateTimer();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,7 +24,6 @@ public class PlayerScript : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             coins++;
-            coinText.text = "Coins: " + coins.ToString();
             other.gameObject.SetActive(false);
         }
     }
@@ -33,21 +32,27 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Spikes"))
         {
-            ChangeHealth(-2, 5);
+            ChangeHealth(-2, 0.5f);
         }
     }
 
     private void ChangeHealth(int amount, float time)
     {
-        if (hitTimer <= 0)
+        if (!_iFrames)
+        {
             health += amount;
-        hitTimer = time;
-        healthText.text = "Health: " + health.ToString();
+            _iFrames = true;
+            _startTime = time;
+        }
     }
-    
 
-    private void Timer()
+    private void HealthUpdateTimer()
     {
-        hitTimer -= Time.deltaTime;
+        if (_iFrames)
+        {
+            _startTime -= Time.deltaTime;
+            if (_startTime <= 0)
+                _iFrames = false;
+        }
     }
 }

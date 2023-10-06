@@ -84747,11 +84747,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1750497389}
+      addedObject: {fileID: 1750497392}
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1750497392}
+      addedObject: {fileID: 1750497395}
+    - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750497396}
   m_SourcePrefab: {fileID: 100100000, guid: 34448014912494d33b041af48acd0291, type: 3}
 --- !u!1 &1750497384 stripped
 GameObject:
@@ -84765,20 +84769,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1750497383}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1750497389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750497384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55876bed114524f598e04608ed28c859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transform: {fileID: 1750497388}
-  walkingSpeed: 5
 --- !u!114 &1750497392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84793,7 +84783,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 0
   health: 100
-  hitTimer: 10
+--- !u!114 &1750497395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38dade5636be4fe2a341352ef6c769b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 1750497388}
+  xWalkingSpeed: 10
+  yWalkingSpeed: 10
+  jumpForce: 0
+--- !u!114 &1750497396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0be53c41dcdc4f048c14498fcec78f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 1750497392}
   coinText: {fileID: 1925337983}
   healthText: {fileID: 834734128}
 --- !u!4 &1825907749 stripped
