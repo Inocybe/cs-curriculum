@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using TMPro;
-
 
 public class PlayerScript : MonoBehaviour
 {
-    public int coins;
-    public int health;
-
+    public PlayerHUD hud;
+    
     private bool _iFrames = false;
     private float _startTime;
+
+    private void Start()
+    {
+        hud = GameObject.FindObjectOfType<PlayerHUD>();
+    }
 
     private void Update()
     {
@@ -23,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            coins++;
+            hud.coins++;
             other.gameObject.SetActive(false);
         }
     }
@@ -40,7 +42,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!_iFrames)
         {
-            health += amount;
+            hud.health += amount;
             _iFrames = true;
             _startTime = time;
         }

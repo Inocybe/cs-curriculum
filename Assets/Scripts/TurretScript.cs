@@ -5,42 +5,53 @@ using UnityEngine;
 
 public class TurretScript : MonoBehaviour
 {
-    public Vector3 turretOriginPoint;
+    public GameObject shootPoint;
     private GameObject player;
     public GameObject projectile;
-    public float shootTimer = 1f;
-    
+    public float originalShootTimer = 1f;
+    private float shootTimer;
+    private bool inRange = false;
+
+    private void Start()
+    {
+        shootTimer = originalShootTimer;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (inRange)
         {
-            //run timer code here
             shootTimer -= Time.deltaTime;
+            if (shootTimer <= 0f)
+            {
+                CreateBullet();
+                shootTimer = originalShootTimer;
+            }
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            CreateBullet(other.transform.position);
-            player = other.gameObject;
+            CreateBullet();
+            inRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
-            player = null;
+            inRange = false;
+            shootTimer = originalShootTimer;
+
         }
     }
 
-    private void CreateBullet(Vector3 position)
+    private void CreateBullet()
     {
-        //Instantiate(projectile, turretOriginPoint);
-    }
+        Instantiate(projectile, shootPoint.transform);
+    }   
 }
