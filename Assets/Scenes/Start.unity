@@ -2851,9 +2851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transform: {fileID: 1856841597}
-  xWalkingSpeed: 10
-  yWalkingSpeed: 10
-  jumpForce: 0
+  xWalkingSpeed: 6
+  yWalkingSpeed: 6
 --- !u!1 &1552371124
 GameObject:
   m_ObjectHideFlags: 0

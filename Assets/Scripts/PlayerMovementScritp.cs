@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementScritp : MonoBehaviour
 {
-    public new Transform transform;
+    public Transform transform;
     
     public float xWalkingSpeed;  
     public float yWalkingSpeed;
-    public float jumpForce;
     private float originalYSpeed;
     
     // Start is called before the first frame update
@@ -35,7 +34,7 @@ public class PlayerMovementScritp : MonoBehaviour
     
     private void Move()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * xWalkingSpeed * Time.deltaTime, Input.GetAxis("Vertical") * yWalkingSpeed * Time.deltaTime, 0f);
+        transform.position += new Vector3(Input.GetAxis("Horizontal") * xWalkingSpeed * Time.deltaTime, Input.GetAxis("Vertical") * yWalkingSpeed * Time.deltaTime,0f);
     }
 
 }

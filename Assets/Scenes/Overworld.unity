@@ -40371,7 +40371,7 @@ MonoBehaviour:
   shootPoint: {fileID: 669105206}
   projectile: {fileID: 5790822057519619805, guid: d181d0f6b0e116b4298e1e64b89f707e,
     type: 3}
-  shootTimer: 1
+  originalShootTimer: 1
 --- !u!50 &866684601
 Rigidbody2D:
   serializedVersion: 4
@@ -85014,12 +85014,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1750497383}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1750497388 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 412193027009803671, guid: 34448014912494d33b041af48acd0291,
-    type: 3}
-  m_PrefabInstance: {fileID: 1750497383}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1750497392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85032,7 +85026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe064c133bf047a9823306ba4c0f5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 0}
+  hud: {fileID: 1166602145}
 --- !u!114 &1750497395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85045,10 +85039,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38dade5636be4fe2a341352ef6c769b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transform: {fileID: 1750497388}
-  xWalkingSpeed: 10
-  yWalkingSpeed: 10
-  jumpForce: 0
+  transform: {fileID: 1750497397}
+  xWalkingSpeed: 6
+  yWalkingSpeed: 6
+--- !u!4 &1750497397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 412193027009803671, guid: 34448014912494d33b041af48acd0291,
+    type: 3}
+  m_PrefabInstance: {fileID: 1750497383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1825907749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281311786053241907, guid: 69c7343f050914c7787bbbe42c07b5b8,
