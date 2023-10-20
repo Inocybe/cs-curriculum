@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        hud = GameObject.FindObjectOfType<PlayerHUD>();
+        hud = FindObjectOfType<PlayerHUD>();
     }
 
     private void Update()
