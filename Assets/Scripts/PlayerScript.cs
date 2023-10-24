@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void ChangeHealth(int amount, float time)
+    public void ChangeHealth(int amount, float time)
     {
         if (!_iFrames)
         {

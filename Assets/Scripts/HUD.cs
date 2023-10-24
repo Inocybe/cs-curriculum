@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerHUD : MonoBehaviour
 {
-    public static PlayerHUD hud;
+    private static PlayerHUD hud;
     public int coins;
     public int health;
     

@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class FireballScript : MonoBehaviour
 {
+    private PlayerScript playerScript;
+    
     private GameObject player;
-    private Vector3 moveTowards = Vector3.zero;
+    private Vector2 moveTowards = Vector2.zero;
     public float speed;
     public float destroyTimer;
     
@@ -14,13 +16,14 @@ public class FireballScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        moveTowards = (player.transform.position - transform.position).normalized * speed;
+        playerScript = player.GetComponent<PlayerScript>();
+        moveTowards = (player.transform.position - transform.position).normalized * 1000f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += moveTowards * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, moveTowards, speed * Time.deltaTime);
         destroyTimer -= Time.deltaTime;
         if (destroyTimer <= 0)
             Destroy(gameObject);
@@ -30,7 +33,7 @@ public class FireballScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GetComponent<PlayerScript>();
+            playerScript.ChangeHealth(-10, 0.5f);
             Destroy(gameObject);
         }
     }
