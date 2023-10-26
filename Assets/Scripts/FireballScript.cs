@@ -8,7 +8,8 @@ public class FireballScript : MonoBehaviour
     private PlayerScript playerScript;
     
     private GameObject player;
-    private Vector2 moveTowards = Vector2.zero;
+    private Rigidbody2D rb;
+    
     public float speed;
     public float destroyTimer;
     
@@ -16,20 +17,22 @@ public class FireballScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
         playerScript = player.GetComponent<PlayerScript>();
-        moveTowards = (player.transform.position - transform.position).normalized * 1000f;
+        Vector3 direction = player.transform.position - transform.position;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, moveTowards, speed * Time.deltaTime);
+        //transform.position += direction * Time.deltaTime;
         destroyTimer -= Time.deltaTime;
         if (destroyTimer <= 0)
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
