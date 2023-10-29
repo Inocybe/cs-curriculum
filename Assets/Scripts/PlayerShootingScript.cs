@@ -25,6 +25,7 @@ public class PlayerShootingScript : MonoBehaviour
 
     void Shoot()
     {
+        
         //if (sprite.flipX == )
     }
     
