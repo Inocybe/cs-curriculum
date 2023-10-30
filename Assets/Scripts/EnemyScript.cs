@@ -25,7 +25,7 @@ public class EnemyScript : MonoBehaviour
         if (distanceFromPlayer < agroDistance)
         {
             //moves towards player if distance from player is less then agro distance
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, walkingSpeed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, walkingSpeed * Time.deltaTime); /* editing this to create pathfinding */
         }
     }
 }
