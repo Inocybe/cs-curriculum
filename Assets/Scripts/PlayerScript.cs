@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+    [SerializeField] TopDown_AnimatorController controller;
+    
     public PlayerHUD hud;
-
-    private TopDown_AnimatorController _controller;
+    
     private bool _iFrames = false;
     private float _startTime;
     private bool _hasAxe = false;
+    private bool _inOverworld;
     
     //array of ints, stores which item is held, if at 0, not held, make sure only holding one item at a time
     //shovel, axe
@@ -20,14 +23,17 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        _controller = GetComponent<TopDown_AnimatorController>();
+        if (SceneManager.GetActiveScene().name == "Overworld")
+            _inOverworld = true;
+        //controller = GetComponentInChildren<TopDown_AnimatorController>();
         hud = FindObjectOfType<PlayerHUD>();
     }
 
     private void Update()
     {
         HealthUpdateTimer();
-        CurrentWeapon();
+        if (_inOverworld)
+            CurrentWeapon();
         WeaponAttack();
     }
 
@@ -81,8 +87,7 @@ public class PlayerScript : MonoBehaviour
 
     private void CurrentWeapon()
     {
-        //doesnt work
-        /*
+        //does work
         if (Input.GetKeyDown(KeyCode.Alpha2) && _hasAxe)
         {
             _currentItem[0] = 0;
@@ -95,8 +100,8 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (_currentItem[0] == 1)
-            _controller.SwitchToShovel();
+            controller.SwitchToShovel();
         else if (_currentItem[1] == 1)
-            _controller.SwitchToAxe();*/
+            controller.SwitchToAxe();
     }
 }

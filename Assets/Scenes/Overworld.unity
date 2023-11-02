@@ -85173,6 +85173,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1729976448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2533259054711417595, guid: 34448014912494d33b041af48acd0291,
+    type: 3}
+  m_PrefabInstance: {fileID: 1750497383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f52f1c934da4613a15cf68f3b0f562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1750497383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85181,6 +85193,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 412193027009803665, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 412193027009803665, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       propertyPath: m_Interpolate
@@ -85262,7 +85279,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1750497395}
+      addedObject: {fileID: 1750497402}
     - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
         type: 3}
       insertIndex: -1
@@ -85292,27 +85309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe064c133bf047a9823306ba4c0f5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 1729976448}
   hud: {fileID: 1166602145}
---- !u!114 &1750497395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750497384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e38dade5636be4fe2a341352ef6c769b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1750497385}
-  groundCheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  xWalkingSpeed: 6
-  yWalkingSpeed: 6
-  jumpingPower: 0
 --- !u!114 &1750497400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85325,6 +85323,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6e25dc6bd4d4be5861844e1b67a99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1750497402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d343a4483b26d3542b14e751d8fc1e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1750497385}
+  walkingSpeed: 15
 --- !u!4 &1825907749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281311786053241907, guid: 69c7343f050914c7787bbbe42c07b5b8,
