@@ -82,7 +82,8 @@ public class PlayerScript : MonoBehaviour
     private void CurrentWeapon()
     {
         //doesnt work
-        /*if (Input.GetKeyDown(KeyCode.Alpha2) && _hasAxe)
+        /*
+        if (Input.GetKeyDown(KeyCode.Alpha2) && _hasAxe)
         {
             _currentItem[0] = 0;
             _currentItem[1] = 1;
