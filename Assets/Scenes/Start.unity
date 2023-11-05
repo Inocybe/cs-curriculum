@@ -2837,6 +2837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe064c133bf047a9823306ba4c0f5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   hud: {fileID: 1552371125}
 --- !u!114 &953271244
 MonoBehaviour:
@@ -2854,7 +2855,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1991191935}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   xWalkingSpeed: 6
   yWalkingSpeed: 6
   jumpingPower: 36
