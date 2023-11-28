@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class TopDown_AnimatorController : MonoBehaviour
 {
-    [SerializeField]
-    RuntimeAnimatorController animShovel;
-
-    [SerializeField]
-    RuntimeAnimatorController animAxe;
+    [SerializeField] RuntimeAnimatorController animShovel;
+    [SerializeField] RuntimeAnimatorController animAxe;
+    [SerializeField] AxeAtackRotation axe;
 
     public bool IsAttacking { get; private set; }
 
@@ -25,7 +23,6 @@ public class TopDown_AnimatorController : MonoBehaviour
         anim.SetBool("IsWalking", false);
         anim.SetInteger("WalkDir", 2);
         sprite.flipX = true;
-
     }
 
     private void Update()
@@ -39,11 +36,13 @@ public class TopDown_AnimatorController : MonoBehaviour
                 {
                     anim.SetInteger("WalkDir", 1);
                     sprite.flipX = true;
+                    axe.axeDirection = 1;
                 }
                 else if (Input.GetAxis("Horizontal") < 0)
                 {
                     anim.SetInteger("WalkDir", 1);
                     sprite.flipX = false;
+                    axe.axeDirection = 3;
                 }
             }
             else
@@ -53,19 +52,23 @@ public class TopDown_AnimatorController : MonoBehaviour
                 {
                     anim.SetInteger("WalkDir", 1);
                     sprite.flipX = true;
+                    axe.axeDirection = 1;
                 }
                 else if (Input.GetAxis("Horizontal") < 0)
                 {
                     anim.SetInteger("WalkDir", 1);
                     sprite.flipX = false;
+                    axe.axeDirection = 3;
                 }
                 else if (Input.GetAxis("Vertical") > 0)
                 {
                     anim.SetInteger("WalkDir", 0);
+                    axe.axeDirection = 0;
                 }
                 else if (Input.GetAxis("Vertical") < 0)
                 {
                     anim.SetInteger("WalkDir", 2);
+                    axe.axeDirection = 2;
                 }
             }
         }

@@ -8,14 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] TopDown_AnimatorController controller;
+    [SerializeField] private TopDown_AnimatorController controller;
+    [SerializeField] private GameObject axeAttack;
     
     public PlayerHUD hud;
     
-    private bool _iFrames = false;
+    private bool _iFrames;
     private float _startTime;
-    private bool _hasAxe = false;
+    private bool _hasAxe;
     private bool _inOverworld;
+    private bool _canAttack;
     
     //array of ints, stores which item is held, if at 0, not held, make sure only holding one item at a time
     //shovel, axe
@@ -34,7 +36,8 @@ public class PlayerScript : MonoBehaviour
         HealthUpdateTimer();
         if (_inOverworld)
             CurrentWeapon();
-        WeaponAttack();
+        if (_canAttack)
+            WeaponAttack();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,7 +85,10 @@ public class PlayerScript : MonoBehaviour
 
     private void WeaponAttack()
     {
-        
+        if (Input.GetMouseButton(0))
+        {
+            axeAttack.SetActive(false);
+        }
     }
 
     private void CurrentWeapon()
@@ -100,8 +106,14 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (_currentItem[0] == 1)
+        {
             controller.SwitchToShovel();
+            _canAttack = false;
+        }
         else if (_currentItem[1] == 1)
+        {
             controller.SwitchToAxe();
+            _canAttack = true;
+        }
     }
 }
