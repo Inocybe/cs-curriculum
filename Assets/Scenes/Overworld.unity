@@ -428,7 +428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &287773805
 Transform:
   m_ObjectHideFlags: 0
@@ -40058,6 +40058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agroDistance: 5
   walkingSpeed: 2
+  health: 1
 --- !u!212 &646940536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41175,77 +41176,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1270322013}
-    m_ColliderPaths:
-    - - X: -386875008
-        Y: -47500000
-      - X: -388437504
-        Y: -40000000
-      - X: -386875008
-        Y: -32500000
-      - X: -386875008
-        Y: -30000000
-      - X: -385624992
-        Y: -30000000
-      - X: -385312512
-        Y: -29062500
-      - X: -383750016
-        Y: -21875000
-      - X: -383750016
-        Y: -20000000
-      - X: -390000000
-        Y: -20000000
-      - X: -390000000
-        Y: -50000000
-      - X: -386875008
-        Y: -50000000
-    - - X: -366249984
-        Y: -21250000
-      - X: -366249984
-        Y: -20000000
-      - X: -380000000
-        Y: -20000000
-      - X: -380000000
-        Y: -21562500
-      - X: -372500000
-        Y: -23125000
-      - X: -368124992
-        Y: -23125000
-    - - X: -350000000
-        Y: -20000000
-      - X: -364375008
-        Y: -20000000
-      - X: -364375008
-        Y: -20625000
-      - X: -363124992
-        Y: -21875000
-      - X: -360000000
-        Y: -21875000
-      - X: -360000000
-        Y: -23437500
-      - X: -358437504
-        Y: -30000000
-      - X: -356875008
-        Y: -30000000
-      - X: -358750016
-        Y: -33437500
-      - X: -359375008
-        Y: -38750000
-      - X: -359375008
-        Y: -40000000
-      - X: -350000000
-        Y: -40000000
-    - - X: -360000000
-        Y: -45625000
-      - X: -361875008
-        Y: -45625000
-      - X: -362500000
-        Y: -48750000
-      - X: -362500000
-        Y: -50000000
-      - X: -360000000
-        Y: -50000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -35.00003, y: -4}
@@ -85416,6 +85347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireball: {fileID: 5790822057519619805, guid: 20ea223ebd6f048d0802cbd57c4877df,
     type: 3}
+  shootCooldown: 1
   speed: 3
 --- !u!114 &1750497402
 MonoBehaviour:
@@ -85619,21 +85551,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1861919208}
-    m_ColliderPaths:
-    - - X: -360000000
-        Y: -40000000
-      - X: -350000000
-        Y: -40000000
-      - X: -350000000
-        Y: -20000000
-      - X: -390000000
-        Y: -20000000
-      - X: -390000000
-        Y: -42187500
-      - X: -360000000
-        Y: -42187500
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -36.00003, y: -4.21875}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,15 +8,26 @@ using UnityEngine.UIElements;
 public class PlayerShootingScript : MonoBehaviour
 {
     [SerializeField] public GameObject fireball;
-    
+
+    public float shootCooldown;
     public float speed;
+
+    private float _originalCooldown;
+
+    private void Start()
+    {
+        _originalCooldown = shootCooldown;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        shootCooldown -= Time.deltaTime;
+        
+        if (Input.GetButtonDown("Fire1") && shootCooldown <= 0f)
         {
             Shoot();
+            shootCooldown = _originalCooldown;
         }
         
     }

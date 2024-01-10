@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,8 @@ public class EnemyScript : MonoBehaviour
     private float distanceFromPlayer;
     public int agroDistance;
     public float walkingSpeed;
+
+    public int health;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,19 @@ public class EnemyScript : MonoBehaviour
         if (distanceFromPlayer < agroDistance)
         {
             //moves towards player if distance from player is less then agro distance
-            //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, walkingSpeed * Time.deltaTime); /* editing this to create pathfinding */
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, walkingSpeed * Time.deltaTime); /* editing this to create pathfinding */
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fireball"))
+        {
+            health--;
+            if (health <= 0f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
