@@ -27,11 +27,11 @@ public class SideScrollPlayerMove : MonoBehaviour
     void Update()
     {
         _horizontal = Input.GetAxis("Horizontal");
+        Jump();
     }
 
     private void FixedUpdate()
     {
-        Jump();
         Move();
     }
 
@@ -43,11 +43,13 @@ public class SideScrollPlayerMove : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, .02f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, .4f, groundLayer);
     }
 
     private void Jump()
     {
+        
+        
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
