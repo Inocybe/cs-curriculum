@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Color = System.Drawing.Color;
 
 public class SideScrollPlayerMove : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb; 
     [SerializeField] Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private SpriteRenderer playerSprite;
     
     public float xWalkingSpeed;  
     public float yWalkingSpeed;
@@ -28,6 +30,7 @@ public class SideScrollPlayerMove : MonoBehaviour
     {
         _horizontal = Input.GetAxis("Horizontal");
         Jump();
+        CheckWall();
     }
 
     private void FixedUpdate()
@@ -43,8 +46,30 @@ public class SideScrollPlayerMove : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, .4f, groundLayer);
+        // make raycast
+        return Physics2D.Raycast(transform.position, Vector2.down, .7f, groundLayer);
     }
+
+    private bool ThreeWallRaycast()
+    {
+        Vector2 direction = playerSprite.flipX ? Vector2.right : Vector2.left;
+        if (Physics2D.Raycast(transform.position, direction, .6f, groundLayer))
+            return false;
+        if (Physics2D.Raycast(transform.position + new Vector3(0f, -0.5f, 0f), direction, .6f, groundLayer))
+            return false;
+        if (Physics2D.Raycast(transform.position + new Vector3(0f, 0.5f, 0f), direction, .6f, groundLayer))
+            return false;
+        return true;
+    }
+
+    private void CheckWall()
+    {
+        if (!ThreeWallRaycast())
+        {
+            _horizontal = 0f;
+        }
+    }
+    
 
     private void Jump()
     {
