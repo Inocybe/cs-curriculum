@@ -9,6 +9,7 @@ TagManager:
   - Axe
   - Spikes
   - Fireball
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX
