@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 180545183}
   - component: {fileID: 180545186}
   - component: {fileID: 180545185}
-  - component: {fileID: 180545184}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -291,19 +290,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1457898645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &180545184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180545182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952b6aa59ece54db6bdcfcbb385d75df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
 --- !u!61 &180545185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -413,7 +399,6 @@ GameObject:
   - component: {fileID: 273366031}
   - component: {fileID: 273366034}
   - component: {fileID: 273366033}
-  - component: {fileID: 273366032}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -436,19 +421,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1457898645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273366032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273366030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952b6aa59ece54db6bdcfcbb385d75df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
 --- !u!61 &273366033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -614,7 +586,7 @@ PrefabInstance:
         type: 3}
       propertyPath: groundCheck
       value: 
-      objectReference: {fileID: 1506826409}
+      objectReference: {fileID: 0}
     - target: {fileID: 2270006506966194031, guid: cddc0eae8679c4344b7e477729e7843b,
         type: 3}
       propertyPath: jumpingPower
@@ -631,7 +603,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 120175720600379111, guid: cddc0eae8679c4344b7e477729e7843b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddc0eae8679c4344b7e477729e7843b, type: 3}
@@ -3022,6 +2995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1457898645}
+  - component: {fileID: 1457898646}
   m_Layer: 0
   m_Name: Spawn Points
   m_TagString: Untagged
@@ -3046,12 +3020,18 @@ Transform:
   - {fileID: 180545183}
   m_Father: {fileID: 1780349551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1506826409 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4501483638302578513, guid: cddc0eae8679c4344b7e477729e7843b,
-    type: 3}
-  m_PrefabInstance: {fileID: 513726359}
+--- !u!114 &1457898646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457898644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952b6aa59ece54db6bdcfcbb385d75df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1633543551 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4720227619336666679, guid: cddc0eae8679c4344b7e477729e7843b,

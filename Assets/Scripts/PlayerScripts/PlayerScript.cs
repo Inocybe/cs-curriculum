@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private TopDown_AnimatorController controller;
     [SerializeField] private GameObject axeAttack;
     
-    public PlayerHUD hud;
+    public HudManager hud;
     
     private bool _iFrames;
     private float _startTime;
@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Overworld")
             _inOverworld = true;
         //controller = GetComponentInChildren<TopDown_AnimatorController>();
-        hud = FindObjectOfType<PlayerHUD>();
+        hud = FindObjectOfType<HudManager>();
     }
 
     private void Update()

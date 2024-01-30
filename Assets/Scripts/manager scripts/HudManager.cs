@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerHUD : MonoBehaviour
+public class HudManager : MonoBehaviour
 {
-    private static PlayerHUD hud;
+    private static HudManager hud;
     public int coins;
     public int health;
     
