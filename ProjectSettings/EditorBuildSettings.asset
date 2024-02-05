@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Platformer.unity
     guid: 7c05f7b52541c470ea158ef3fa701101
+  - enabled: 1
+    path: Assets/Scenes/PlatformerDeath.unity
+    guid: d6c6d874ae2e14ab393fdc22e61207e9
   m_configObjects: {}

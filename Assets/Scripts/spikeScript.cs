@@ -9,7 +9,7 @@ public class SpikeScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<PlayerSpawnScript>().Respawn();
+            other.GetComponent<PlayerSpawnScript>().Death();
         }
     }
 }

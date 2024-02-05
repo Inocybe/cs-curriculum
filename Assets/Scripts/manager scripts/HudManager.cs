@@ -40,6 +40,7 @@ public class HudManager : MonoBehaviour
             foreach (Transform child in transform)
             {
                 spawnPoints.Add(child, false);
+                Debug.Log(child);
             }
 
             _spawnsLoaded = true;

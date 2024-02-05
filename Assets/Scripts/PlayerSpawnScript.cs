@@ -2,28 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawnScript : MonoBehaviour
 {
-    [SerializeField] private GameObject currentSpawn;
+    [SerializeField] public Transform currentSpawn;
 
     public HudManager manager;
 
-    public void Respawn()
+    private void Start()
     {
-        transform.position = currentSpawn.transform.position;
+        transform.position = currentSpawn.position;
     }
-    
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Spawnpoint"))
-        {
-            if (manager.spawnPoints.ContainsKey(other.transform))
-            {
-                manager.spawnPoints[other.transform] = true;
-            }
-            //other.transform.position
+        { 
+            manager.spawnPoints[other.transform] = true;
         }
+    }
+
+    public void Death()
+    {
+        SceneManager.LoadScene(3);
     }
 }
