@@ -1,34 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Button = UnityEngine.UI.Button;
 
 public class DeathButtonScript : MonoBehaviour
 { 
-    public HudManager manager;
+    private HudManager manager;
     public GameObject buttonPrefab;
-    public GameObject buttonParent;
 
     private void Start()
     {
+        manager = FindObjectOfType<HudManager>();
+        
         for (int i = 0, len = manager.spawnPoints.Count; i < len; i++)
         {
             if (manager.spawnPoints.ElementAt(i).Value)
-            {
-                GameObject button = Instantiate(buttonPrefab, buttonParent.transform);
-                button.transform.position += new Vector3(0f, -20 * i, 0f);
-                //button.GetComponent<Button>().onClick.AddListener(() => SelectSpawnpoint(i));
-            }
-            Debug.Log("works");
+            { 
+                GameObject button = Instantiate(buttonPrefab, transform);
+                button.transform.position += new Vector3(0f, -30 * i, 0f);
+                button.GetComponentInChildren<TextMeshProUGUI>().text = "SpawnPoint: " + (i + 1);
+                button.GetComponent<Button>().onClick.AddListener(() => SelectSpawnpoint(i));
+            } 
         }
     }
-
-    private void SelectSpawnpoint(int spawnpointIndex)
+    
+    public void SelectSpawnpoint(int spawnIndex)
     {
-        Debug.Log("Selected Spawnpoint " + spawnpointIndex);
+        manager.selectedSpawnIndex = spawnIndex;
+        SceneManager.LoadScene(2);
     }
 }

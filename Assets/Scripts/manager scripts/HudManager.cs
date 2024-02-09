@@ -18,6 +18,7 @@ public class HudManager : MonoBehaviour
     private GameObject _spawnpointParent;
     public Dictionary<Transform, bool> spawnPoints = new Dictionary<Transform, bool>();
     private bool _spawnsLoaded;
+    [HideInInspector] public int selectedSpawnIndex;
 
     private void Awake()
     {
@@ -37,10 +38,9 @@ public class HudManager : MonoBehaviour
         _spawnpointParent = GameObject.Find("Spawn Points");
         if (_spawnpointParent != null && !_spawnsLoaded)
         {
-            foreach (Transform child in transform)
+            foreach (Transform child in _spawnpointParent.transform)
             {
                 spawnPoints.Add(child, false);
-                Debug.Log(child);
             }
 
             _spawnsLoaded = true;
