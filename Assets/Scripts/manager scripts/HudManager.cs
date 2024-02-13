@@ -16,9 +16,9 @@ public class HudManager : MonoBehaviour
     public TextMeshProUGUI healthText;
     
     private GameObject _spawnpointParent;
-    public Dictionary<Transform, bool> spawnPoints = new Dictionary<Transform, bool>();
+    public Dictionary<Vector3, bool> spawnPoints = new Dictionary<Vector3, bool>();
     private bool _spawnsLoaded;
-    [HideInInspector] public int selectedSpawnIndex;
+    public int selectedSpawnIndex;
 
     private void Awake()
     {
@@ -31,16 +31,13 @@ public class HudManager : MonoBehaviour
             hud = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
-
-    private void Start()
-    { 
+        
         _spawnpointParent = GameObject.Find("Spawn Points");
         if (_spawnpointParent != null && !_spawnsLoaded)
         {
             foreach (Transform child in _spawnpointParent.transform)
             {
-                spawnPoints.Add(child, false);
+                spawnPoints.Add(child.position, false);
             }
 
             _spawnsLoaded = true;
