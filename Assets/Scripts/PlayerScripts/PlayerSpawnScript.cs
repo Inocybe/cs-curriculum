@@ -12,12 +12,6 @@ public class PlayerSpawnScript : MonoBehaviour
     private void Start()
     {
         manager = FindObjectOfType<HudManager>();
-        for (int i = 0, len = manager.spawnPoints.Count; i < len; i++)
-        {
-            print(manager.spawnPoints.ElementAt(i));
-        }
-        Debug.Log(manager.selectedSpawnIndex);
-        Debug.Log(manager.spawnPoints.ElementAt(manager.selectedSpawnIndex));
         //this gets from manager dict gets the key at the index that person selected index
         transform.position = manager.spawnPoints.ElementAt(manager.selectedSpawnIndex).Key;
     }

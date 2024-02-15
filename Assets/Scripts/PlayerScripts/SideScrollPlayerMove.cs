@@ -46,8 +46,14 @@ public class SideScrollPlayerMove : MonoBehaviour
 
     private bool IsGrounded()
     {
-        // make raycast
-        return Physics2D.Raycast(transform.position, Vector2.down, .7f, groundLayer);
+        if (Physics2D.Raycast(transform.position, Vector2.down, .7f, groundLayer))
+            return true;
+        if (Physics2D.Raycast(transform.position + new Vector3(0.35f, 0f, 0f), Vector2.down, .7f, groundLayer))
+            return true;
+        if (Physics2D.Raycast(transform.position + new Vector3(-0.35f, 0f, 0f), Vector2.down, .7f, groundLayer))
+            return true;
+
+        return false;
     }
 
     private bool ThreeWallRaycast()
