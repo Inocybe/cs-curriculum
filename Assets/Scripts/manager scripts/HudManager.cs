@@ -20,6 +20,8 @@ public class HudManager : MonoBehaviour
     private bool _spawnsLoaded;
     public int selectedSpawnIndex;
 
+    public bool doorClosed;
+
     private void Awake()
     {
         if (hud != null && hud != this)
